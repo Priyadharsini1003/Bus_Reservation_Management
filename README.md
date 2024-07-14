@@ -1,5 +1,9 @@
-
+```markdown
 # Bus Ticket Booking System
+
+## Demo Video
+
+[![Watch the video](https://i.vimeocdn.com/video/983580502.jpg)](https://vimeo.com/983860280)
 
 ## Table of Contents
 
@@ -13,101 +17,93 @@
 
 ## Setting up Backend (Spring Boot)
 
-A. Create a new Spring Boot project.
+1. **Initialize Spring Boot Project**
+   - Set up a new Spring Boot application.
 
-B. Define entities (e.g., Bus, Booking, Passenger) and set up the necessary data models.
+2. **Define Entities**
+   - Create entities such as Bus, Booking, and Passenger and configure the data models.
 
-C. Implement RESTful APIs using Spring Boot's controllers to handle bus booking requests, user authentication, and data retrieval from a database.
+3. **Create RESTful APIs**
+   - Develop RESTful APIs using Spring Boot controllers to handle operations like booking requests, user authentication, and database interactions.
 
-D. Set up a database (e.g., MySQL, MongoDB) to store bus schedules, booking information, and user data.
+4. **Database Setup**
+   - Configure a database (e.g., MySQL, MongoDB) to store bus schedules, booking details, and user information.
 
 ## Setting Up Frontend (HTML, CSS, and JS or Thymeleaf Template)
 
-A. Design the user interface (UI) for the app using HTML, JS, and CSS. Develop responsive web pages for listing available bus routes, booking forms, and user profiles.
+1. **Design User Interface**
+   - Design the application's user interface using HTML, JavaScript, and CSS. Create responsive web pages for displaying bus routes, booking forms, and user profiles.
 
-B. Utilize CSS frameworks (e.g., Bootstrap) for styling to enhance the user experience.
+2. **Use CSS Frameworks**
+   - Apply CSS frameworks such as Bootstrap to enhance the user experience and make the UI more appealing.
 
 ## User Registration and Authentication
 
 1. **User Registration:**
-
-   A. Develop a user registration page with HTML forms to collect user information like name, email, and password.
-
-   B. Implement client-side and server-side validation for form input.
-
-   C. Create RESTful API endpoints in Spring Boot to handle user registration and store user data securely in the database.
+   - Develop registration forms using HTML to collect user details like name, email, and password.
+   - Implement both client-side and server-side validation for form inputs.
+   - Set up RESTful API endpoints in Spring Boot to handle registration requests and securely store user data.
 
 2. **User Authentication:**
-
-   A. Implement user login and authentication using React components.
-
-   B. Use JSON Web Tokens (JWT) for secure authentication.
+   - Implement login functionality using React components.
+   - Use JSON Web Tokens (JWT) for secure user authentication.
 
 ## Bus Ticket Booking
 
-1. **Browse and Select Bus Routes:**
-
-   A. Create a page for the user which allows them to enter destinations (e.g., from=... to=...).
-
-   B. After entering the destination, browsers should navigate to the page containing bus routes, along with departure and arrival times, and pricing.
+1. **Search and Select Bus Routes:**
+   - Create a page where users can enter their departure and destination locations.
+   - After submitting the destinations, navigate to a page that displays available bus routes, departure and arrival times, and ticket prices.
 
 2. **Booking Process:**
-
-   A. Develop booking forms with HTML and React components to capture user details (e.g., passenger info, seat preferences).
-
-   B. Implement the booking logic in React to send booking requests to the Spring Boot backend using RESTful APIs.
-
-   C. Provide users with booking confirmations and e-tickets upon successful transactions.
+   - Develop booking forms using HTML and React to capture user details like passenger information and seat preferences.
+   - Implement booking logic in React to send requests to the Spring Boot backend via RESTful APIs.
+   - Provide users with booking confirmations and e-tickets after successful transactions.
 
 ## User Profile and Booking History
 
 1. **User Profile:**
-
-   A. Create a user profile page where users can view and update their personal information.
-
-   B. Implement features like changing passwords and managing payment methods.
+   - Create a profile page where users can view and update their personal information.
+   - Include features for changing passwords and managing payment methods.
 
 2. **Booking History:**
-
-   A. Develop a section for users to view their booking history.
-
-   B. Retrieve booking data from the database and display it to users.
+   - Develop a section where users can view their past bookings.
+   - Retrieve booking data from the database and display it to users.
 
 ## API Endpoints
 
 ### User Registration and Authentication Endpoints
 
 - **Register User**
-  - **URL:** `/api/register`
+  - **Endpoint:** `/api/register`
   - **Method:** `POST`
-  - **Description:** Registers a new user.
-  - **Request Body:** JSON containing user details (name, email, password).
+  - **Description:** Register a new user.
+  - **Request Body:** JSON containing user information (name, email, password).
   - **Example Request:**
     ```json
     {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "password123"
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "securepassword"
     }
     ```
   - **Example Response:**
     ```json
     {
-      "message": "User registered successfully",
+      "message": "Registration successful",
       "userId": 1
     }
     ```
 
 - **Login User**
-  - **URL:** `/api/login`
+  - **Endpoint:** `/api/login`
   - **Method:** `POST`
-  - **Description:** Authenticates a user and returns a JWT.
-  - **Request Body:** JSON containing email and password.
+  - **Description:** Authenticate a user and provide a JWT.
+  - **Request Body:** JSON with email and password.
   - **Example Request:**
     ```json
     {
-      "email": "john.doe@example.com",
-      "password": "password123"
+      "email": "jane.smith@example.com",
+      "password": "securepassword"
     }
     ```
   - **Example Response:**
@@ -119,35 +115,35 @@ B. Utilize CSS frameworks (e.g., Bootstrap) for styling to enhance the user expe
 
 ### Bus Ticket Booking Endpoints
 
-- **Get Available Bus Routes**
-  - **URL:** `/api/routes`
+- **Fetch Available Bus Routes**
+  - **Endpoint:** `/api/routes`
   - **Method:** `GET`
-  - **Description:** Retrieves available bus routes.
+  - **Description:** Get a list of available bus routes.
   - **Example Response:**
     ```json
     [
       {
         "routeId": 1,
-        "source": "City A",
-        "destination": "City B",
-        "departureTime": "2024-07-14T10:00:00",
-        "arrivalTime": "2024-07-14T14:00:00",
-        "price": 20.0
+        "source": "City X",
+        "destination": "City Y",
+        "departureTime": "2024-07-14T08:00:00",
+        "arrivalTime": "2024-07-14T12:00:00",
+        "price": 25.0
       }
     ]
     ```
 
 - **Book a Ticket**
-  - **URL:** `/api/book`
+  - **Endpoint:** `/api/book`
   - **Method:** `POST`
-  - **Description:** Books a ticket for a specified route.
-  - **Request Body:** JSON containing booking details (route id, passenger info, seat preferences).
+  - **Description:** Make a booking for a specified route.
+  - **Request Body:** JSON with booking details (route ID, passenger information, seat preferences).
   - **Example Request:**
     ```json
     {
       "routeId": 1,
-      "passengerName": "Jane Doe",
-      "seatPreference": "Window"
+      "passengerName": "John Doe",
+      "seatPreference": "Aisle"
     }
     ```
   - **Example Response:**
@@ -159,17 +155,17 @@ B. Utilize CSS frameworks (e.g., Bootstrap) for styling to enhance the user expe
     ```
 
 - **Get Booking Details**
-  - **URL:** `/api/bookings/{id}`
+  - **Endpoint:** `/api/bookings/{id}`
   - **Method:** `GET`
-  - **Description:** Retrieves booking details by booking ID.
-  - **Path Variable:** `id (long):` ID of the booking.
+  - **Description:** Retrieve details of a specific booking by ID.
+  - **Path Variable:** `id (long):` The ID of the booking.
   - **Example Response:**
     ```json
     {
       "bookingId": 1,
       "routeId": 1,
-      "passengerName": "Jane Doe",
-      "seatPreference": "Window",
+      "passengerName": "John Doe",
+      "seatPreference": "Aisle",
       "bookingStatus": "Confirmed"
     }
     ```
@@ -177,50 +173,50 @@ B. Utilize CSS frameworks (e.g., Bootstrap) for styling to enhance the user expe
 ### User Profile and Booking History Endpoints
 
 - **Get User Profile**
-  - **URL:** `/api/user/profile`
+  - **Endpoint:** `/api/user/profile`
   - **Method:** `GET`
-  - **Description:** Retrieves the profile of the authenticated user.
+  - **Description:** Fetch the authenticated user's profile.
   - **Example Response:**
     ```json
     {
       "userId": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com"
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com"
     }
     ```
 
 - **Update User Profile**
-  - **URL:** `/api/user/profile`
+  - **Endpoint:** `/api/user/profile`
   - **Method:** `PUT`
-  - **Description:** Updates the profile of the authenticated user.
-  - **Request Body:** JSON containing updated user details.
+  - **Description:** Update the authenticated user's profile.
+  - **Request Body:** JSON with updated user information.
   - **Example Request:**
     ```json
     {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "newpassword123"
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "newsecurepassword"
     }
     ```
   - **Example Response:**
     ```json
     {
-      "message": "User profile updated successfully"
+      "message": "Profile updated successfully"
     }
     ```
 
 - **Get Booking History**
-  - **URL:** `/api/user/bookings`
+  - **Endpoint:** `/api/user/bookings`
   - **Method:** `GET`
-  - **Description:** Retrieves the booking history of the authenticated user.
+  - **Description:** Fetch the authenticated user's booking history.
   - **Example Response:**
     ```json
     [
       {
         "bookingId": 1,
         "routeId": 1,
-        "passengerName": "Jane Doe",
-        "seatPreference": "Window",
+        "passengerName": "John Doe",
+        "seatPreference": "Aisle",
         "bookingStatus": "Confirmed"
       }
     ]
@@ -228,7 +224,19 @@ B. Utilize CSS frameworks (e.g., Bootstrap) for styling to enhance the user expe
 
 ## Testing and Quality Assurance
 
-**Testing:**
+### Testing:
 
-A. Write unit test cases and test application functionality.
+1. **Write Unit Tests**
+   - Develop unit tests to verify the functionality of different components of the application.
+
+2. **Test Application Functionality**
+   - Perform comprehensive testing to ensure the application works as expected.
+
+## Additional Resources
+
+- **Email and Ticketing System**
+  - For details on the email and ticketing system, refer to the video tutorial provided above. This feature includes sending emails and e-tickets upon successful bookings.
+  
+- **PDF Documentation**
+  - Additional documentation is available in the PDF file included in the repository.
 ```
