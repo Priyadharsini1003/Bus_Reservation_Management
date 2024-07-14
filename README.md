@@ -1,4 +1,3 @@
-```markdown
 # Bus Ticket Booking System
 
 ## Demo Video
@@ -14,6 +13,7 @@
 5. [User Profile and Booking History](#user-profile-and-booking-history)
 6. [API Endpoints](#api-endpoints)
 7. [Testing and Quality Assurance](#testing-and-quality-assurance)
+8. [Additional Resources](#additional-resources)
 
 ## Setting up Backend (Spring Boot)
 
@@ -239,4 +239,3 @@
   
 - **PDF Documentation**
   - Additional documentation is available in the PDF file included in the repository.
-```
